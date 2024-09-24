@@ -7,6 +7,9 @@ import Home from './Pages/Home.js';
 import Login from './Pages/Login.js';
 import Main from './Pages/Main.js';
 
+import Admin from './Pages/Admin.js';
+import Revenus from './Pages/Revenus.js';
+import Service from './Pages/Service.js';
 
 function App() {
   return (
@@ -17,6 +20,12 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path='/Main' element={<Main/>}/>
+
+      <Route path="/Main" element={<Main />}>
+          <Route path="Admin" element={<Admin />} />
+          <Route path="Revenus" element={<Revenus />} />
+          <Route path="Service" element={<Service />} />
+        </Route>
 
       
       
