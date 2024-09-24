@@ -2,6 +2,7 @@ import React from 'react';
 import Axios from "axios";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import { Container, Form, Button, Row, Col, Card } from 'react-bootstrap';
 
 function Login() {
   const [name, setname] = useState("");
@@ -28,25 +29,40 @@ function Login() {
   }
 
   return (
-    <>
-      <div>
-        <h1>login Admin</h1>
-        <form onSubmit={onSubmit}>
-          <label>Email address :</label>
-          <input type='text' value={name}
-            onChange={e => setname(e.target.value)}
-            className='input' />
-          
-          <br />
-          <label>Password : </label>
-          <input type='password' value={pwd}
-            onChange={e => setpwd(e.target.value)}
-            className='input' />
-          <br />
-          <button type="submit">login</button>
-        </form>
-      </div>
-    </>
+    <Container className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+      <Card style={{ width: '400px' }}>
+        <Card.Body>
+          <h2 className="text-center mb-4">Login Admin</h2>
+          <Form onSubmit={onSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control 
+                type="text" 
+                placeholder="Enter your email" 
+                value={name}
+                onChange={e => setname(e.target.value)} 
+                required 
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control 
+                type="password" 
+                placeholder="Enter your password" 
+                value={pwd}
+                onChange={e => setpwd(e.target.value)} 
+                required 
+              />
+            </Form.Group>
+
+            <Button variant="primary" type="submit" className="w-100">
+              Login
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 }
 

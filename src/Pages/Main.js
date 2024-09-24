@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import {  Outlet } from 'react-router-dom'
 import Axios from 'axios';
+import Navbarr from './Navbarr';
 
 function Main() {
   const [ziza, setZiza] = useState(null);
@@ -31,6 +33,8 @@ function Main() {
       ) : (
         <p>Loading...</p>
       )}
+      <Navbarr />
+      <Outlet />
     </div>
   );
 }

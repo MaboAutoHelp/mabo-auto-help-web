@@ -10,7 +10,7 @@ function Admin() {
     const fetchUserData = async () => {
         try {
             
-            const response = await Axios.get("http://localhost:8000/admin/getAllAdmin,{}");
+            const response = await Axios.get("http://localhost:8000/admin/getAllAdmin");
              setAdmin(response.data);
         } catch (error) {
             console.log(error);
@@ -24,6 +24,17 @@ function Admin() {
 const filteredadmin = admin.filter(admin =>
   admin.username.toLowerCase().includes(searchTerm.toLowerCase())
 );
+
+const handleDelete = async (id) => {
+    try {
+         await Axios.put(`http://localhost:8000/admin/updateDeleteStatus/${id}`);
+        
+        
+    } catch (error) {
+        console.error("Error updating delete status:", error);
+    }
+};
+
   
   return (
     <div>
@@ -36,9 +47,10 @@ const filteredadmin = admin.filter(admin =>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to={""} className="link-opacity-25-hover">
-                                    <i className="bi bi-plus-square"></i> Create admin
-                                </Link>
+                            <Link to={"/admin/create"} className="link-opacity-25-hover">
+                            <i className="bi bi-plus-square"></i> Create admin
+                            </Link>
+
                             </li>
                         </ul>
                         <form className="d-flex" role="search">
@@ -54,6 +66,7 @@ const filteredadmin = admin.filter(admin =>
                         <th>Name</th>
                         <th>password</th>
                         <th>Revenu</th>
+                        <th>ita</th>
                         
                     </tr>
                 </thead>
@@ -63,6 +76,7 @@ const filteredadmin = admin.filter(admin =>
                             <td>{admin.username}</td>
                             <td>{admin.password}</td>
                             <td>{admin.Revenu}</td>
+                            <td>{admin.Delete}</td>
                             
                             <td>
                                 <button className="btn btn-outline-success">
@@ -74,14 +88,19 @@ const filteredadmin = admin.filter(admin =>
                             <td >
                                 <div class="d-grid gap-2 d-md-flex justify-content-md">
                                 
-                                   <button className="btn btn-outline-warning">
-                                      <Link to={``} className="link" >
-                                         <i className="bi bi-pencil-square"></i> Edit
-                                      </Link>
+                                <button className="btn btn-outline-warning">
+                                <Link to={`/admin/edit/${admin._id}`} className="link">
+                                    <i className="bi bi-pencil-square"></i> Edit
+                                </Link>
+
                                     </button>
-                                     <button className="btn btn-outline-danger" >
-                                         <i className="bi bi-trash3-fill"></i> Delete
-                                     </button>
+                                    <button 
+    className="btn btn-outline-danger"
+    onClick={() => handleDelete(admin._id)}
+>
+    <i className="bi bi-trash3-fill"></i> Delete
+</button>
+
                                 
                                 </div>
                             </td>
@@ -92,3 +111,4 @@ const filteredadmin = admin.filter(admin =>
     </div>
   );
 }
+export default Admin;

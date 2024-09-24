@@ -11,6 +11,9 @@ import Admin from './Pages/Admin.js';
 import Revenus from './Pages/Revenus.js';
 import Service from './Pages/Service.js';
 
+import CreateAdmin from './Pages/CreateAdmin.js';
+import EditAdmin from './Pages/EditAdmin.js';
+
 function App() {
   return (
     <Router>
@@ -26,6 +29,10 @@ function App() {
           <Route path="Revenus" element={<Revenus />} />
           <Route path="Service" element={<Service />} />
         </Route>
+        <Route path="/admin/create" element={<CreateAdmin />} />
+        <Route path="/admin/edit/:id" element={<EditAdmin />} />
+
+
 
       
       
