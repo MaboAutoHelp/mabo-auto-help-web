@@ -78,13 +78,7 @@ const handleDelete = async (id) => {
                             <td>{admin.Revenu}</td>
                             <td>{admin.Delete}</td>
                             
-                            <td>
-                                <button className="btn btn-outline-success">
-                                <Link to={``} className="link" >
-                                    Rendez
-                                 </Link>
-                                 </button>
-                            </td>
+                            
                             <td >
                                 <div class="d-grid gap-2 d-md-flex justify-content-md">
                                 
@@ -95,11 +89,11 @@ const handleDelete = async (id) => {
 
                                     </button>
                                     <button 
-    className="btn btn-outline-danger"
-    onClick={() => handleDelete(admin._id)}
->
-    <i className="bi bi-trash3-fill"></i> Delete
-</button>
+                                    className="btn btn-outline-danger"
+                                onClick={() => handleDelete(admin._id)}
+                                >
+                                <i className="bi bi-trash3-fill"></i> Delete
+                                </button>
 
                                 
                                 </div>

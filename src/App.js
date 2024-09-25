@@ -13,6 +13,7 @@ import Service from './Pages/Service.js';
 
 import CreateAdmin from './Pages/CreateAdmin.js';
 import EditAdmin from './Pages/EditAdmin.js';
+import Factures from './Pages/Factures.js';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         </Route>
         <Route path="/admin/create" element={<CreateAdmin />} />
         <Route path="/admin/edit/:id" element={<EditAdmin />} />
+        <Route path="/factures/:id" element={<Factures />} />
 
 
 

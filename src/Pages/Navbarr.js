@@ -5,22 +5,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbarr() {
-  return (
+return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          
-          <Nav className="me-auto">
-          
-          <Nav.Link as={Link} to={"/Main/Admin"}>Admin</Nav.Link>
-          <Nav.Link as={Link} to={"/Main/Revenus"}>Revenus</Nav.Link>
-          <Nav.Link as={Link} to={"/Main/Service"}>Service</Nav.Link>
+        <Nav className="me-auto">
+        <Nav.Link as={Link} to={"/Main/Admin"}>Admin</Nav.Link>
+        <Nav.Link as={Link} to={"/Main/Revenus"}>Revenus</Nav.Link>
+        <Nav.Link as={Link} to={"/Main/Service"}>Service</Nav.Link>
         
-          </Nav>
+        </Nav>
         </Container>
-      </Navbar>
+    </Navbar>
     </>
-  );
+);
 }
 
 
