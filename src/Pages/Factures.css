@@ -1,0 +1,12 @@
+.invoice-details {
+    display: flex;
+    flex-direction: column;
+    position: relative; /* إضافة هذه الخاصية للتحكم في موضع QR Code */
+  }
+  
+.qr-code {
+    position: absolute; /* جعل QR Code مطلق الموضع */
+    top: 20px; /* وضعه على بعد 20 بيكسل من الأعلى */
+    right: 20px; /* وضعه على بعد 20 بيكسل من اليمين */
+  }
+  
