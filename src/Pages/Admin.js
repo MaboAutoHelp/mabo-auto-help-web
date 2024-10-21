@@ -27,7 +27,25 @@ const filteredadmin = admin.filter(admin =>
 
 const handleDelete = async (id) => {
     try {
-         await Axios.put(`http://localhost:8000/admin/updateDeleteStatus/${id}`);
+        await Axios.put(`http://localhost:8000/admin/updateDeleteStatus/${id}`);
+
+        setAdmin(prevAdmins => prevAdmins.map(admin => 
+            admin._id === id ? { ...admin, Delete: 'no' } : admin
+        ));
+        
+        
+    } catch (error) {
+        console.error("Error updating delete status:", error);
+    }
+};
+
+const handle = async (id) => {
+    try {
+        await Axios.put(`http://localhost:8000/admin/updateDeleteStatusYES/${id}`);
+
+        setAdmin(prevAdmins => prevAdmins.map(admin => 
+            admin._id === id ? { ...admin, Delete: 'yes' } : admin
+        ));
         
         
     } catch (error) {
@@ -87,12 +105,16 @@ const handleDelete = async (id) => {
                                     <i className="bi bi-pencil-square"></i> Edit
                                 </Link>
 
-                                    </button>
-                                    <button 
-                                    className="btn btn-outline-danger"
+                                </button>
+                                <button className="btn btn-outline-danger"
                                 onClick={() => handleDelete(admin._id)}
                                 >
-                                <i className="bi bi-trash3-fill"></i> Delete
+                                <i className="bi bi-trash3-fill"></i> off
+                                </button>
+                                <button className="btn btn-outline-success"
+                                onClick={() => handle(admin._id)}
+                                >
+                                <i className="bi bi-toggle-on"></i> on
                                 </button>
 
                                 
