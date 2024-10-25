@@ -13,6 +13,7 @@ return (
         <Nav.Link as={Link} to={"/Main/Admin"}>Admin</Nav.Link>
         <Nav.Link as={Link} to={"/Main/Revenus"}>Revenus</Nav.Link>
         <Nav.Link as={Link} to={"/Main/Service"}>Service</Nav.Link>
+        <Nav.Link as={Link} to={"/Main/List"}>List</Nav.Link>
         
         </Nav>
         </Container>

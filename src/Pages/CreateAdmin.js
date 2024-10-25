@@ -15,7 +15,13 @@ function CreateAdmin() {
       const response = await Axios.post('http://localhost:8000/admin/register', {
         username,
         password,
-      });
+      },
+      /*{
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          }
+    }*/
+    );
 
       if (response.data.message === "Admin created successfully") {
         alert(response.data.message);

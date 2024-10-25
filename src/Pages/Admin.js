@@ -3,15 +3,15 @@ import Axios from "axios";
 import { Link } from 'react-router-dom';
 
 function Admin() {
-  const [admin, setAdmin] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+const [admin, setAdmin] = useState([]);
+const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
+useEffect(() => {
     const fetchUserData = async () => {
         try {
             
             const response = await Axios.get("http://localhost:8000/admin/getAllAdmin");
-             setAdmin(response.data);
+            setAdmin(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -54,9 +54,9 @@ const handle = async (id) => {
 };
 
   
-  return (
+return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <h2>admin</h2>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -125,6 +125,6 @@ const handle = async (id) => {
                 </tbody>
             </table>
     </div>
-  );
+);
 }
 export default Admin;

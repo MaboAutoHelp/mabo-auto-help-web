@@ -10,10 +10,13 @@ import Main from './Pages/Main.js';
 import Admin from './Pages/Admin.js';
 import Revenus from './Pages/Revenus.js';
 import Service from './Pages/Service.js';
+import List from './Pages/ListService.js'
 
 import CreateAdmin from './Pages/CreateAdmin.js';
 import EditAdmin from './Pages/EditAdmin.js';
 import Factures from './Pages/Factures.js';
+
+import EditService from './Pages/EditService .js';
 
 function App() {
   return (
@@ -29,10 +32,13 @@ function App() {
           <Route path="Admin" element={<Admin />} />
           <Route path="Revenus" element={<Revenus />} />
           <Route path="Service" element={<Service />} />
+          <Route path="List" element={<List/>} />
         </Route>
         <Route path="/admin/create" element={<CreateAdmin />} />
         <Route path="/admin/edit/:id" element={<EditAdmin />} />
         <Route path="/factures/:id" element={<Factures />} />
+
+        <Route path="/List/edit/:id" element={<EditService />} />
 
 
 
