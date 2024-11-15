@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 function CreateAdmin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [tel, settel] = useState('');
+  const [lieuMicanicien, setlieuMicanicien] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
@@ -15,6 +17,9 @@ function CreateAdmin() {
       const response = await Axios.post('http://localhost:8000/admin/register', {
         username,
         password,
+        tel,
+        lieuMicanicien,
+
       },
       /*{
         headers: {
@@ -58,6 +63,28 @@ function CreateAdmin() {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="tel" className="form-label">tel:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="tel"
+            value={tel}
+            onChange={(e) => settel(e.target.value)}
+            required
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="lieuMicanicien" className="form-label">lieuMicanicien:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="lieuMicanicien"
+            value={lieuMicanicien}
+            onChange={(e) => setlieuMicanicien(e.target.value)}
             required
           />
         </div>
